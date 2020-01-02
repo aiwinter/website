@@ -7,8 +7,9 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-drupal`,
       options: {
+        baseUrl: `http://live-aiwinter.pantheonsite.io/`,
         name: `images`,
         path: `${__dirname}/src/images`,
       },
