@@ -12,7 +12,7 @@ const IndexPage = props => (
         <ul>
           {page.node.title}
           <br />
-          <div>{page.node.body.value}</div>
+          <div dangerouslySetInnerHTML={{ __html: page.node.body.value }} />
         </ul>
       </li>
     ))}
