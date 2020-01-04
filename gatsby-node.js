@@ -11,7 +11,7 @@ const path = require(`path`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `node__article`) {
-    const slug = `/article/${node.drupal_internal__nid}/`
+    const slug = node.path.alias
     createNodeField({
       node,
       name: `slug`,
@@ -34,6 +34,9 @@ exports.createPages = ({ actions, graphql }) => {
           edges {
             node {
               internalId: drupal_internal__nid
+              path {
+                alias
+              }
               fields {
                 slug
               }
@@ -53,7 +56,7 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.fields.slug,
         component: articleTemplate,
         context: {
-          slug: node.fields.slug,
+          slug: node.path.alias,
         },
       })
     })
