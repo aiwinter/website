@@ -3,32 +3,28 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+  <nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <h1>{siteTitle}</h1>
+      </a>
     </div>
-  </header>
+    <div class="navbar-menu" id="navbarExampleTransparentExample"></div>
+    <div class="navbar-end stay-flex">
+      <span class="navbar-item">
+        <Link to="/">Home</Link>
+      </span>
+      <span class="navbar-item">
+        <Link to="/articles">Articles</Link>
+      </span>
+      <span class="navbar-item">
+        <Link to="/about">About</Link>
+      </span>
+      <span class="navbar-item">
+        <Link to="/help">Help</Link>
+      </span>
+    </div>
+  </nav>
 )
 
 Header.propTypes = {
