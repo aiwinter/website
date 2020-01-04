@@ -28,11 +28,6 @@ html {
   overflow-x: hidden;
 }
 
-nav {
-  position: fixed;
-  right: 100px;
-}
-
 .list,
 nav {
   z-index: 9999;
@@ -44,14 +39,6 @@ nav {
   position: relative;
   cursor: pointer;
   background-color: #111;
-}
-
-nav > ul {
-  width: 50px;
-}
-
-nav > ul:active {
-  width: 200px;
 }
 
 .overlay-content ul {
@@ -124,5 +111,21 @@ nav > ul:active {
   .overlay-content ul li a {
     font-size: 25px;
     text-align: right;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: stretch;
+
+  .stay-flex {
+    justify-content: flex-end;
+    margin-left: auto;
+    align-items: stretch;
+    display: flex;
+
+    .navbar-item {
+      display: flex;
+    }
   }
 }

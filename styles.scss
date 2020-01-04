@@ -1,5 +1,7 @@
 @charset "utf-8";
+
 // If need, change your variables before importing Bulma
 // $title-color: #ff0000;
+$navbar-breakpoint: 10px;
 @import "~bulma/bulma.sass";
 @import "scss/custom.scss";
