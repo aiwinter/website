@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  font-family: Inconsolata, monospace;
+}
+
+.overlay,
+body,
+html {
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
+}
+
+.overlay .overlay-content {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.background-content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  right: 100px;
+}
+
+.list,
+nav {
+  z-index: 9999;
+}
+
+.list {
+  height: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  background-color: #111;
+}
+
+nav > ul {
+  width: 50px;
+}
+
+nav > ul:active {
+  width: 200px;
+}
+
+.overlay-content ul {
+  list-style: none;
+}
+
+.overlay-content ul li {
+  opacity: 0.8;
+}
+
+.overlay-content ul li a {
+  text-align: center;
+  padding: 12vh 2rem;
+  color: #eee;
+  font-size: 100px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block;
+  font-weight: 700;
+}
+
+.overlay-content ul li:hover {
+  opacity: 1;
+}
+
+#close {
+  position: fixed;
+  padding: 10px;
+  background-color: #fff;
+  top: 20px;
+  left: 40px;
+  z-index: 9999;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+#close:active,
+#close:hover,
+#close span:active,
+#close span:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+#title h1 {
+  color: #eee;
+}
+
+#close span {
+  color: #000;
+}
+
+@media only screen and (max-width: 480px) {
+  nav {
+    top: 0;
+    right: 0;
+  }
+
+  section h1 {
+    font-size: 150%;
+  }
+
+  section h3 {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .overlay-content ul li a {
+    font-size: 25px;
+    text-align: right;
+  }
+}
