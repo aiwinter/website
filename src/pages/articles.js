@@ -4,13 +4,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = props => (
+const ArticlesPage = props => (
   <Layout>
+    {" "}
     <SEO title="Home" />
     <section class="section">
       <div class="container">
         {props.data.allNodeArticle.edges.map(page => (
-          <div class="content is-small">
+          <div class="content  is-small">
             <h1>
               <Link to={page.node.path.alias}>{page.node.title}</Link>
             </h1>
@@ -21,10 +22,10 @@ const IndexPage = props => (
   </Layout>
 )
 
-export default IndexPage
+export default ArticlesPage
 
 export const query = graphql`
-  query pageQuery {
+  query articlesQuery {
     allNodeArticle {
       edges {
         node {
