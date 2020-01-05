@@ -104,5 +104,5 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   })
-  return [articles, pages]
+  return Promise.all([articles, pages])
 }
