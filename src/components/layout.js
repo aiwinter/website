@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Header from "./header"
 import "../../styles.scss"
@@ -29,8 +29,30 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <footer class="footer">
         <div class="content">
+          <p>A. I. Winter© {new Date().getFullYear()}</p>
           <p>
-            <div class="container">© {new Date().getFullYear()}</div>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="mailto:aiwinter@gmail.com"
+            >
+              aiwinter@gmail.com
+            </a>
+          </p>
+          <p>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/aiwinter"
+            >
+              Github: https://github.com/aiwinter
+            </a>
+          </p>
+          <p>
+            <Link to="/about">About</Link>
+          </p>
+          <p>
+            <Link to="/help">Help</Link>
           </p>
         </div>
       </footer>

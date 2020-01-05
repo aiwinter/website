@@ -7,8 +7,15 @@ import SEO from "../components/seo"
 const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
+    <section class="hero is-large">
+      <div class="hero-body">
+        <div class="container is-fluid box-content">
+          <h1 class="title ">{`[{A.I.Winter}]`}</h1>
+        </div>
+      </div>
+    </section>
     <section class="section">
-      <div class="container">
+      <div class="container is-fluid">
         {props.data.allNodeArticle.edges.map(page => (
           <div class="content is-small">
             <h1>
