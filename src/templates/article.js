@@ -1,12 +1,14 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const ArticleTemplate = ({ data }) => (
   <Layout>
-    <section class="hero is-info is-large">
+    <SEO title={data.article.title} />
+    <section className="hero is-info is-large">
       <div
-        class="hero-body"
+        className="hero-body"
         style={{
           backgroundImage:
             "url(" +
@@ -18,13 +20,13 @@ const ArticleTemplate = ({ data }) => (
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div class="container">
-          <h1 class="title">{data.article.title}</h1>
+        <div className="container">
+          <h1 className="title">{data.article.title}</h1>
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container is-fluid">
+    <section className="section">
+      <div className="container is-fluid">
         <div dangerouslySetInnerHTML={{ __html: data.article.body.value }} />
       </div>
     </section>
