@@ -7,9 +7,9 @@ import SEO from "../components/seo"
 const ArticlesPage = props => (
   <Layout>
     {" "}
-    <SEO title="Home" />
+    <SEO title="Articles" />
     <section class="section">
-      <div class="container">
+      <div class="container is-fluid">
         {props.data.allNodeArticle.edges.map(page => (
           <div class="content  is-small">
             <h1>
