@@ -5,9 +5,11 @@ import React from "react"
 const Header = ({ siteTitle }) => (
   <nav class="navbar is-transparent">
     <div class="navbar-brand">
-      <Link class="navbar-item" to="/">
-        <h1>{siteTitle}</h1>
-      </Link>
+      <span class="navbar-item">
+        <Link to="/">
+          <h1>{siteTitle}</h1>
+        </Link>
+      </span>
     </div>
     <div class="navbar-menu" id="navbarExampleTransparentExample"></div>
     <div class="navbar-end stay-flex">
