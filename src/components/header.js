@@ -5,9 +5,9 @@ import React from "react"
 const Header = ({ siteTitle }) => (
   <nav class="navbar is-transparent">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <Link class="navbar-item" to="/">
         <h1>{siteTitle}</h1>
-      </a>
+      </Link>
     </div>
     <div class="navbar-menu" id="navbarExampleTransparentExample"></div>
     <div class="navbar-end stay-flex">
