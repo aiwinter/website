@@ -11,11 +11,17 @@ const path = require(`path`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `node__article`) {
-    const slug = node.path.alias
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: node.path.alias,
+    })
+  }
+  if (node.internal.type === `node__page`) {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: node.path.alias,
     })
   }
 }
@@ -27,7 +33,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   const articleTemplate = path.resolve(`src/templates/article.js`)
   // Query for article nodes to use in creating pages.
-  return graphql(
+  const articles = graphql(
     `
       {
         articles: allNodeArticle {
@@ -61,4 +67,42 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   })
+
+  const pageTemplate = path.resolve(`src/templates/basicPage.js`)
+  // Query for article nodes to use in creating pages.
+  const pages = graphql(
+    `
+      {
+        pages: allNodePage {
+          edges {
+            node {
+              internalId: drupal_internal__nid
+              path {
+                alias
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    // Create pages for each recipe.
+    result.data.pages.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.slug,
+        component: pageTemplate,
+        context: {
+          slug: node.path.alias,
+        },
+      })
+    })
+  })
+  return [articles, pages]
 }
