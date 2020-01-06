@@ -26,34 +26,36 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
-      <footer className="footer">
-        <div className="content">
-          <p>A. I. Winter© {new Date().getFullYear()}</p>
-          <p>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href="mailto:aiwinter@gmail.com"
-            >
-              aiwinter@gmail.com
-            </a>
-          </p>
-          <p>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://github.com/aiwinter"
-            >
-              Github: https://github.com/aiwinter
-            </a>
-          </p>
-          <p>
-            <Link to="/about">About</Link>
-          </p>
-          <p>
-            <Link to="/help">Help</Link>
-          </p>
+      <main className="bd-main">{children}</main>
+      <footer className="footer is-dark">
+        <div className="container is-fluid">
+          <div className="content">
+            <p>A. I. Winter© {new Date().getFullYear()}</p>
+            <p>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="mailto:aiwinter@gmail.com"
+              >
+                aiwinter@gmail.com
+              </a>
+            </p>
+            <p>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://github.com/aiwinter"
+              >
+                Github: https://github.com/aiwinter
+              </a>
+            </p>
+            <p>
+              <Link to="/about">About</Link>
+            </p>
+            <p>
+              <Link to="/help">Help</Link>
+            </p>
+          </div>
         </div>
       </footer>
     </>

@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 const PageTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.page.title} />
-    <section className="hero is-medium is-dark is-bold">
+    <section className="hero is-medium is-dark">
       <div className="hero-body">
         <div className="container is-fluid">
           <h1 className="title">{data.page.title}</h1>

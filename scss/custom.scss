@@ -1,6 +1,5 @@
 * {
-  box-sizing: border-box;
-  font-family: Inconsolata, monospace;
+  color: $grey-lightest;
 }
 
 .overlay,
@@ -119,7 +118,7 @@ nav {
   align-items: stretch;
 
   @media only screen and (max-width: 410px) {
-    display: block;
+    //display: block;
   }
 
   .stay-flex {
@@ -129,7 +128,7 @@ nav {
     display: flex;
 
     @media only screen and (max-width: 410px) {
-      justify-content: flex-start;
+      //justify-content: flex-start;
     }
 
     .navbar-item {
@@ -138,21 +137,25 @@ nav {
   }
 }
 
-.box-content h1 {
-  border: 12px solid;
-  padding: 48px;
-  padding: 40px 0;
-  font-weight: 900;
-  font-size: 545%;
-  text-align: center;
-  width: 100%;
-
-  @media only screen and (max-width: 1024px) {
-    font-size: 345%;
+.box-content {
+  .hero-body {
+    padding: 0;
   }
 
-  @media only screen and (max-width: 410px) {
-    font-size: 145%;
-    border: 6px solid;
+  h1 {
+    font-size: calc(20px + (175 - 20) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 200;
+    text-align: center;
+    color: $grey-lightest;
+  }
+}
+
+footer {
+  p {
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
   }
 }

@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 const ArticleTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.article.title} />
-    <section className="hero is-info is-large">
+    <section className="hero is-info is-fullheight-with-navbar">
       <div
         className="hero-body"
         style={{

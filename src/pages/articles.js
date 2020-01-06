@@ -1,8 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
+import Articlelist from "../components/articlelist"
 
 const ArticlesPage = props => (
   <Layout>
@@ -10,23 +10,7 @@ const ArticlesPage = props => (
     <SEO title="Articles" />
     <section className="section">
       <div className="container is-fluid">
-        <div className="columns">
-          {props.data.allNodeArticle.edges.map(page => (
-            <div className="column is-one-quarter" key={page.node.id}>
-              <div className="content is-small">
-                <Link to={page.node.path.alias}>
-                  <Img
-                    fluid={
-                      page.node.relationships.field_image.localFile
-                        .childImageSharp.fluid
-                    }
-                  />
-                  <h1>{page.node.title}</h1>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Articlelist data={props} />
       </div>
     </section>
   </Layout>
