@@ -24,12 +24,56 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: node.path.alias,
     })
   }
+  if (node.internal.type === `node__project`) {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: node.path.alias,
+    })
+  }
 }
 
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
+
+  const projectTemplate = path.resolve(`src/templates/project.js`)
+  // Query for project nodes to use in creating pages.
+  const projects = graphql(
+    `
+      {
+        projects: allNodeProject {
+          edges {
+            node {
+              internalId: drupal_internal__nid
+              path {
+                alias
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    // Create pages for each recipe.
+    result.data.projects.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.slug,
+        component: projectTemplate,
+        context: {
+          slug: node.path.alias,
+        },
+      })
+    })
+  })
 
   const articleTemplate = path.resolve(`src/templates/article.js`)
   // Query for article nodes to use in creating pages.
@@ -69,7 +113,7 @@ exports.createPages = ({ actions, graphql }) => {
   })
 
   const pageTemplate = path.resolve(`src/templates/basicPage.js`)
-  // Query for article nodes to use in creating pages.
+  // Query for page nodes to use in creating pages.
   const pages = graphql(
     `
       {
@@ -104,5 +148,5 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   })
-  return Promise.all([articles, pages])
+  return Promise.all([articles, pages, projects])
 }

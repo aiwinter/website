@@ -12,7 +12,10 @@ const Header = ({ siteTitle }) => (
           <Link to="/">{siteTitle}</Link>
         </span>
         <span className="navbar-item">
-          <Link to="/articles">Articles</Link>
+          <Link to="/articles">Blog</Link>
+        </span>
+        <span className="navbar-item">
+          <Link to="/projects">Projects</Link>
         </span>
         <span className="navbar-item">
           <Link to="/about">About</Link>
