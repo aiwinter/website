@@ -13,6 +13,10 @@ module.exports = {
         baseUrl: `http://live-aiwinter.pantheonsite.io/`,
         name: `images`,
         path: `${__dirname}/src/images`,
+        basicAuth: {
+          username: process.env.BASIC_AUTH_USERNAME,
+          password: process.env.BASIC_AUTH_PASSWORD,
+        },
       },
     },
     `gatsby-transformer-sharp`,
