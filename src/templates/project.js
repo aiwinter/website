@@ -16,7 +16,8 @@ const ProjectTemplate = ({ data }) => {
         for (i = 0; i < data.allFileFile.edges.length; i++) {
           if (
             data.allFileFile.edges[i].node.drupal_id === uuid &&
-            data.allFileFile.edges[i].node.localFile
+            data.allFileFile.edges[i].node.localFile &&
+            data.allFileFile.edges[i].node.localFile.childImageSharp !== null
           ) {
             return (
               <Img
