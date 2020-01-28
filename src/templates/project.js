@@ -57,7 +57,7 @@ const ProjectTemplate = ({ data }) => {
         </div>
       </section>
       <section className="section">
-        <div className="container is-fluid">{body_elements}</div>
+        <div className="container fit">{body_elements}</div>
       </section>
     </Layout>
   )
@@ -87,18 +87,7 @@ export const query = graphql`
                 id
                 childImageSharp {
                   fluid(maxWidth: 1024) {
-                    base64
-                    tracedSVG
-                    aspectRatio
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                    sizes
-                    originalImg
-                    originalName
-                    presentationWidth
-                    presentationHeight
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
@@ -114,18 +103,7 @@ export const query = graphql`
           localFile {
             childImageSharp {
               fluid(maxWidth: 1024) {
-                base64
-                tracedSVG
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-                originalImg
-                originalName
-                presentationWidth
-                presentationHeight
+                ...GatsbyImageSharpFluid
               }
             }
           }

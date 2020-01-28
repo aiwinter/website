@@ -57,7 +57,7 @@ const ArticleTemplate = ({ data }) => {
         </div>
       </section>
       <section className="section">
-        <div className="container is-fluid">{body_elements}</div>
+        <div className="container fit">{body_elements}</div>
       </section>
     </Layout>
   )
