@@ -117,22 +117,29 @@ nav {
   display: flex;
   align-items: stretch;
 
-  @media only screen and (max-width: 410px) {
-    //display: block;
-  }
-
   .stay-flex {
     justify-content: flex-end;
     margin-left: auto;
     align-items: stretch;
     display: flex;
 
-    @media only screen and (max-width: 410px) {
-      //justify-content: flex-start;
-    }
-
     .navbar-item {
       display: flex;
+      a {
+        font-size: 0.75rem;
+      }
+
+      @media only screen and (min-width: 374px) {
+        a {
+          font-size: 0.75rem;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        a {
+          font-size: 1rem;
+        }
+      }
     }
   }
 }
@@ -162,8 +169,4 @@ footer {
 
 .gatsby-image-wrapper {
   margin-bottom: $image-bottom-margin;
-}
-
-body {
-  
 }
