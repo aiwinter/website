@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
@@ -23,10 +23,26 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [toggleClass, setToggleClass] = useState(false)
+
+  useEffect(() => {
+    const isClient = typeof window === "object"
+
+    if (!isClient) {
+      return false
+    }
+
+    if (window.location.pathname === `/`) {
+      setToggleClass("true")
+    }
+  }, []) // Empty array ensures that effect is only run on mount and unmount
+
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main className="bd-main">{children}</main>
+      <main className={`${toggleClass ? "bd-main bg" : "bd-main"}`}>
+        {children}
+      </main>
       <footer className="footer is-dark">
         <div className="container is-fluid">
           <div className="content">
