@@ -126,6 +126,7 @@ nav {
     .navbar-item {
       display: flex;
       a {
+        display: flex;
         font-size: 0.75rem;
       }
 
@@ -169,4 +170,25 @@ footer {
 
 .gatsby-image-wrapper {
   margin-bottom: $image-bottom-margin;
+}
+
+.cls-1 {
+  fill: #fff;
+}
+
+.logo {
+  margin: 0 100px;
+}
+
+.nav--logo {
+  width: 50px;
+
+  @media only screen and (min-width: 374px) {
+    padding: 2px;
+    width: 75px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 100px;
+  }
 }
